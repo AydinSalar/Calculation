@@ -1,0 +1,30 @@
+from prettytable import PrettyTable
+
+table = PrettyTable(["Exercise", "Score", "Total possible"])
+
+exr1 = input("Enter exercise number 1 name: ")
+score1 = int(input("Enter exercise number 1 score: "))
+totalp1 = int(input("Enter exercise number 1 total points possible: "))
+
+exr2 = input("Enter exercise number 2 name: ")
+score2 = int(input("Enter exercise number 2 score: "))
+totalp2 = int(input("Enter exercise number 2 pricetotal points possible: "))
+
+exr3 = input("Enter exercise number 3 name: ")
+score3 = int(input("Enter exercise number 3 score: "))
+totalp3 = int(input("Enter exercise number 3 pricetotal points possible: "))
+
+totals = int(score1) + int(score2) + int(score3)
+totalp = int(totalp1) + int(totalp2) + int(totalp3)
+total_per = int(totals) / int(totalp) * 100
+total_per = "{:.2f}".format(total_per)
+
+table.add_row([exr1, score1, totalp1])
+table.add_row([exr2, score2, totalp2])
+table.add_row([exr3, score3, totalp3])
+table.add_row(["Total", totals, totalp])
+
+fin_sent = "Your total score is " + str(totals) + " out of " + str(totalp) + " , or " + str(total_per) + "%."  
+
+print(table)
+print(fin_sent)
