@@ -1,0 +1,37 @@
+from prettytable import PrettyTable
+
+table = PrettyTable(["Item name", "Item quantity", "Item price"])
+table2 = PrettyTable([])
+
+name1 = input("Enter item number 1 name:")
+quantity1 = int(input("Enter item number 1 quantity:"))
+price1 = float(input("Enter item number 1 price:")) * quantity1
+price1 = "{:.2f}".format(price1)
+
+name2 = input("Enter item number 2 name:")
+quantity2 = int(input("Enter item number 2 quantity:"))
+price2 = float(input("Enter item number 2 price:")) * quantity2
+price2 = "{:.2f}".format(price2)
+
+name3 = input("Enter item number 3 name:")
+quantity3 = int(input("Enter item number 3 quantity:"))
+price3 = float(input("Enter item number 3 price:")) * quantity3
+price3 = "{:.2f}".format(price3)
+
+subtotal = float(price1) + float(price2) + float(price3)
+
+sales_tax = subtotal * 0.0625
+sales_tax = "{:.2f}".format(sales_tax)
+
+total_w_tax = subtotal * 1.0625
+total_w_tax = "{:.2f}".format(total_w_tax)
+
+table.add_row([name1, quantity1, price1])
+table.add_row([name2, quantity2, price2])
+table.add_row([name3, quantity3, price3])
+table.add_row(["----------", "----------", "----------"])
+table.add_row(["Subtotal", " ", "{:.2f}".format(subtotal)])
+table.add_row(["Sales tax", " ", sales_tax])
+table.add_row(["Total", " ", total_w_tax])
+
+print(table)
